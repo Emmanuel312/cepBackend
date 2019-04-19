@@ -4,8 +4,16 @@ class GetCep
 {   
     async gepCep(req,res)
     {   
-        const cep = await cepPromise(req.params.numCep)
-        return res.json(cep)
+        try
+        {
+            const cep = await cepPromise(req.params.numCep)
+            return res.json(cep)
+        }
+        catch(err)
+        {
+            return res.json(err)
+        }
+        
     }
 }
 
